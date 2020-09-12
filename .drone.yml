@@ -18,6 +18,12 @@ trigger:
     - rollback
 
 steps:
+- name: version-string
+  image: alpine/git
+  commands:
+    - git fetch --tags
+    - export WOPI_VERSION=$(git describe)
+
 - name: publish-docker-wopi-latest
   pull: always
   image: plugins/docker
@@ -29,6 +35,8 @@ steps:
       from_secret: dockerhub_username
     password:
       from_secret: dockerhub_password
+    build_args:
+      - VERSION=${WOPI_VERSION}
 
 ---
 kind: pipeline
@@ -56,3 +64,5 @@ steps:
       from_secret: dockerhub_username
     password:
       from_secret: dockerhub_password
+    build_args:
+      - VERSION=${DRONE_TAG}
