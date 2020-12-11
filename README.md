@@ -1,5 +1,7 @@
 # WOPI Server
 
+Test
+
 A Vendor-neutral Web-application Open Platform Interface (WOPI) gateway for EFSS systems,
 to integrate several Office Online platforms including Microsoft Office Online and Collabora Online.
 
@@ -61,4 +63,3 @@ For testing collaborative scenarios, repeat the above for each user participatin
 4. Create the files `iopsecret` and `wopiscret` in the folder `/etc/wopi/`, create random strings for the secrets
 5. Create a local config file `/etc/wopi/wopiserver.conf` with the needed parameters: start from `docker/etc/wopiserver.conf`, and make sure that at least an application provider URL is configured (e.g. `codeurl` for Collabora)
 6. From the WOPI server folder run: `python3 src/wopiserver.py`
-
