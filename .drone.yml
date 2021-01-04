@@ -21,6 +21,7 @@ steps:
 - name: publish-docker-wopi-latest
   pull: always
   image: plugins/docker
+  privileged: true
   settings:
     repo: cs3org/wopiserver
     tags: latest
@@ -50,6 +51,7 @@ steps:
 - name: publish-docker-wopi-tag
   pull: always
   image: plugins/docker
+  privileged: true
   settings:
     repo: cs3org/wopiserver
     tags: ${DRONE_TAG}
@@ -79,6 +81,7 @@ steps:
 - name: publish-docker-wopi-tag
   pull: always
   image: plugins/docker
+  privileged: true
   settings:
     repo: cs3org/wopiserver
     tags: ${DRONE_TAG}-xrootd
